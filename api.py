@@ -151,7 +151,6 @@ def facematch():
         f_video.close()
         path = './video/video.mp4'
         pathdb = './data'
-            
         cam = cv2.VideoCapture(path)
 
         while(True):
@@ -166,6 +165,7 @@ def facematch():
                     continue
                 else:
                     print("f_face_encoding not empty")
+                    cv2.imwrite('./frame/frame.jpg', frame)
                     f_face_encoding = f_face_encoding[0]
                     for filename in os.listdir(pathdb):
                         image_of_emp = face_recognition.load_image_file(os.path.join(pathdb, filename))
